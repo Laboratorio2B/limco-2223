@@ -8,11 +8,14 @@ assert(imag(x0)==0 & imag(y0)==0,"Le coordinate del centro devono essere reali")
 
 % approssimiamo la circonferenza con un poligono di n lati
 n = 60;
-% genero vettore di n punti equispaziati tra 0 e 2pi
-t = 0:2*pi/n:2*pi;
+% generiamo vettore di n punti equispaziati tra 0 e 2pi
+% usiamo linspace invece che la notazione x:y:z
+t = linspace(0,2*pi,n);
 % mette in x e y cos(t)e sin(t)
-x = cos(t)+x0; % coseno di ogni componente di t e sommo x0
-y = sin(t)+y0;
+x = r*cos(t)+x0; % coseno di ogni componente di t *r+ x0
+y = r*sin(t)+y0;
 plot(x,y,'r');     % disegno in rosso
+axis padded;       % metti spazio fra disegno e bordi
+axis equal;        % assi uguali per visualizzare un tondo 
 raggio = r;        % restituiamo il raggio
 end
